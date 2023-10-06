@@ -74,7 +74,7 @@
                                 </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/dashboard">
                                     <p>List Car</p>
                                 </a>
                             </li>
@@ -95,7 +95,7 @@
                                 </h5>
                             </div>
 
-                            <form action="/admin/update/<%= admin.id %>" method="post" enctype="">
+                            <form action="/car/update/<%= car.id %>" method="post" enctype="">
                                 <div class="bg__white mt-2">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -104,7 +104,7 @@
                                                     <p>Nama<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <input name="name" type="text" class="form-control" id="exampleFormControlInput1" value="<%= admin.name %>">
+                                                    <input name="name" type="text" class="form-control" id="exampleFormControlInput1" value="<%= car.name %>">
                                                 </div>
                                             </div>
                                             <div class="row align-items-center mt-3">
@@ -112,7 +112,7 @@
                                                     <p>Sewa Per Hari<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <input name="price" type="number" class="form-control" id="exampleFormControlInput1" value="<%= admin.price %>">
+                                                    <input name="price" type="number" class="form-control" id="exampleFormControlInput1" value="<%= car.price %>">
                                                 </div>
                                             </div>
                                             <div class="row align-items-center mt-3">
@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <select name="category" class="form-select" aria-label="Default select example">
-                                                        <option selected><%= admin.category %></option>
+                                                        <option selected><%= car.category %></option>
                                                       </select>
                                                 </div>
                                             </div>

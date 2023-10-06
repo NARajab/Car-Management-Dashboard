@@ -3,20 +3,20 @@ const adminController = require("../controllers/adminController")
 
 const router = express.Router()
 
-router.route("/dashboard").get(adminController.toursPage)
+router.route("/dashboard").get(adminController.carsPage)
 
 router.route("/create").get(adminController.createPage)
 
 router.route("/edit/:id").get(adminController.editPage)
 
-router.route("/admin/add").post(adminController.createTour)
+router.route("/car/add").post(adminController.createCar)
 
 router
-  .route("/admin/update/:id")
-  .post(adminController.editTour)
+  .route("/car/update/:id")
+  .post(adminController.editCar)
 
 router
-  .route("/admin/delete/:id")
-  .post(adminController.removeCar)
+  .route("/car/delete/:id")
+  .get(adminController.removeCar)
 
 module.exports = router

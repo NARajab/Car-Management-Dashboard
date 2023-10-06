@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const adminSchema = new mongoose.Schema({
+const carSchema = new mongoose.Schema({
   name: {
     type: String,
     require: [true, "Nama tour harus ada"],
@@ -14,8 +14,12 @@ const adminSchema = new mongoose.Schema({
     type: String,
     default: "small",
   },
+  dateUpdated: {
+    type: String,
+    require: [true, "Tanggalnya harus ada"],
+  },
 })
 
-const Admin = mongoose.model("Tour", adminSchema)
+const Car = mongoose.model("Car", carSchema)
 
-module.exports = Admin
+module.exports = Car

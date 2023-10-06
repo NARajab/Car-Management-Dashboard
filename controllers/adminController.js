@@ -1,17 +1,29 @@
-const Admin = require("../models/adminsModel")
+const Car = require("../models/adminsModel")
 
-const toursPage = async (req, res) => {
+const carsPage = async (req, res) => {
   try {
-    const fullUrl =
-      req.protocol +
-      "://" +
-      req.get("host") +
-      req.originalUrl
-    const admins = await Admin.find()
+    const { category, name } = req.query
+
+    const condition = {}
+
+    if (category) {
+      condition.category = { $eq: category }
+    }
+
+    if (name) {
+      condition.name = {
+        $regex: new RegExp(name, "i"),
+      }
+    }
+
+    const cars = await Car.find().where(condition)
+
     res.render("index.ejs", {
-      admins,
+      cars,
       message: req.flash("message", ""),
-      fullUrl: fullUrl,
+      fullUrl: category
+        ? `http://localhost:3000/?category=${category}`
+        : "http://localhost:3000/",
     })
   } catch (err) {
     res.status(400).json({
@@ -32,9 +44,16 @@ const createPage = async (req, res) => {
   }
 }
 
-const createTour = async (req, res) => {
+const createCar = async (req, res) => {
+  console.log(`create req.body:`)
+  console.log(req.body)
+
   try {
-    await Admin.create(req.body)
+    let data = {
+      ...req.body,
+      dateUpdated: req.date,
+    }
+    await Car.create(data)
     req.flash("message", "Ditambah")
     res.redirect("/dashboard")
   } catch (err) {
@@ -47,9 +66,9 @@ const createTour = async (req, res) => {
 
 const editPage = async (req, res) => {
   try {
-    const admin = await Admin.findById(req.params.id)
+    const car = await Car.findById(req.params.id)
     res.render("edit.ejs", {
-      admin,
+      car,
     })
   } catch (err) {
     res.status(400).json({
@@ -59,10 +78,14 @@ const editPage = async (req, res) => {
   }
 }
 
-const editTour = async (req, res) => {
+const editCar = async (req, res) => {
   try {
     const id = req.params.id
-    await Admin.findByIdAndUpdate(id, req.body, {
+    const data = {
+      ...req.body,
+      dateUpdated: req.date,
+    }
+    await Car.findByIdAndUpdate(id, data, {
       new: true,
     })
     req.flash("message", "Diupdate")
@@ -78,7 +101,7 @@ const editTour = async (req, res) => {
 const removeCar = async (req, res) => {
   try {
     const id = req.params.id
-    await Admin.findByIdAndRemove(id)
+    await Car.findByIdAndRemove(id)
     req.flash("message", "Dihapus")
     res.redirect("/dashboard")
   } catch (err) {
@@ -90,10 +113,10 @@ const removeCar = async (req, res) => {
 }
 
 module.exports = {
-  toursPage,
+  carsPage,
   createPage,
-  createTour,
+  createCar,
   editPage,
-  editTour,
+  editCar,
   removeCar,
 }

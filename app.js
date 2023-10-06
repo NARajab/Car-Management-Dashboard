@@ -26,8 +26,26 @@ app.use(
 app.use(flash())
 
 app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString()
-  console.log(req.requestTime)
+  req.requestTime = new Date()
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+
+  req.date = `${req.requestTime.getHours()}:${req.requestTime.getMinutes()}, ${req.requestTime.getDate()} ${
+    months[req.requestTime.getMonth()]
+  } ${req.requestTime.getFullYear()}`
+
   next()
 })
 
