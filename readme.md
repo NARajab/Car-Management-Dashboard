@@ -9,7 +9,8 @@ This project is to create a dashboard for car rental which includes several feat
 Entity Relationship Diagram
 ![Diagram](public/images/diagram.png)
 
-##Build With
+## Build With
+
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![Mongoose](https://img.shields.io/badge/mongoose-%23808080.svg?style=for-the-badge&logo=mongoose&logoColor=8b0000)
