@@ -1,4 +1,4 @@
-const Car = require("../models/adminsModel")
+const Car = require("../models/carsModel")
 
 const carsPage = async (req, res) => {
   try {

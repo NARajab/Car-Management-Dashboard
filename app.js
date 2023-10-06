@@ -5,7 +5,7 @@ const session = require("express-session")
 
 const app = express()
 
-const adminRouter = require("./routes/adminRoutes")
+const carRouter = require("./routes/carRoutes")
 
 app.use(express.json())
 app.use(morgan("dev"))
@@ -49,6 +49,6 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use("/", adminRouter)
+app.use("/", carRouter)
 
 module.exports = app
