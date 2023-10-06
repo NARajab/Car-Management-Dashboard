@@ -1,12 +1,11 @@
-<h3 align="center">Car Management Dashboard</h3>
-
-<!-- ABOUT THE PROJECT -->
+<h1 align="center">Car Management Dashboard</h1>
 
 ## About The Project
 
 This project is to create a dashboard for car rental which includes several features, such as adding new car data, updating new car data and being able to delete car data.
 
-Entity Relationship Diagram
+##### Entity Relationship Diagram
+
 ![Diagram](public/images/diagram.png)
 
 ## Build With
