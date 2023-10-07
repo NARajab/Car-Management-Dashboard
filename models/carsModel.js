@@ -18,8 +18,13 @@ const carSchema = new mongoose.Schema({
     type: String,
     require: [true, "Tanggalnya harus ada"],
   },
+  imageUrl: {
+    type: String,
+    default:
+      "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0&h=180",
+  },
 })
 
-const Car = mongoose.model("Car", carSchema)
+const Admin = mongoose.model("Admin", carSchema)
 
-module.exports = Car
+module.exports = Admin
